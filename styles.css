@@ -1,0 +1,240 @@
+:root {
+    --quantum-primary: #00ffff;
+    --quantum-secondary: #ff00ff;
+    --quantum-background: #0a0a2a;
+    --quantum-glow: rgba(0, 255, 255, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', monospace;
+}
+
+body {
+    background-color: var(--quantum-background);
+    color: var(--quantum-primary);
+    overflow: hidden;
+}
+
+.quantum-universe {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    perspective: 1000px;
+}
+
+.holographic-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at center, 
+        rgba(0, 255, 255, 0.1) 0%, 
+        rgba(255, 0, 255, 0.1) 100%
+    );
+    pointer-events: none;
+    z-index: 2;
+}
+
+.particle-field {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 255, 255, 0.05) 0px,
+        rgba(0, 255, 255, 0.05) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    z-index: 1;
+}
+
+.quantum-interface {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    height: 95%;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid var(--quantum-primary);
+    box-shadow: 0 0 50px var(--quantum-glow);
+    z-index: 10;
+    overflow: hidden;
+}
+
+.digital-terminal {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 255, 255, 0.1);
+    padding: 10px;
+    color: var(--quantum-primary);
+}
+
+.terminal-controls .control-dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.control-dot.red { background: #ff5f56; }
+.control-dot.yellow { background: #ffbd2e; }
+.control-dot.green { background: #27c93f; }
+
+.quantum-navigation {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    background: rgba(0, 255, 255, 0.05);
+}
+
+.nav-sphere {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: rgba(0, 255, 255, 0.1);
+    border: 2px solid var(--quantum-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-sphere:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--quantum-glow);
+}
+
+.quantum-sections {
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+.quantum-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quantum-section.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.profile-hologram {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 30px;
+    border: 2px solid var(--quantum-primary);
+}
+
+.skill-quantum-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.skill-quantum-node {
+    position: relative;
+    background: rgba(0, 255, 255, 0.1);
+    border: 2px solid var(--quantum-primary);
+    padding: 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.node-pulse {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at center, 
+        rgba(0, 255, 255, 0.3) 0%, 
+        transparent 70%
+    );
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 1; }
+}
+
+.project-quantum-deck {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.quantum-project-card {
+    background: rgba(0, 255, 255, 0.1);
+    border: 2px solid var(--quantum-primary);
+    padding: 20px;
+    transition: all 0.3s ease;
+}
+
+.quantum-project-card:hover {
+    transform: rotateY(15deg);
+}
+
+.quantum-ai-assistant {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-top: 2px solid var(--quantum-primary);
+}
+
+.quantum-chat-messages {
+    height: 200px;
+    overflow-y: auto;
+    background: rgba(0, 255, 255, 0.05);
+    padding: 10px;
+}
+
+.quantum-chat-input {
+    display: flex;
+    margin-top: 10px;
+}
+
+.quantum-chat-input input {
+    flex-grow: 1;
+    background: transparent;
+    border: 2px solid var(--quantum-primary);
+    color: var(--quantum-primary);
+    padding: 10px;
+}
+
+.quantum-chat-input button {
+    background: var(--quantum-primary);
+    color: var(--quantum-background);
+    border: none;
+    padding: 10px;
+}
